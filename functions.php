@@ -26,7 +26,7 @@ function custom_admin_menu_script() {
     wp_add_inline_script('custom-admin-menu', '
         document.addEventListener("DOMContentLoaded", function() {
             const menuReplacements = {
-                "doctors": "الأطباء",
+                "Doctors": "الأطباء",
                 "orders": "الحجوزات",
                 "article_doctors": "أقسام بلعنوان",
                 // Add more replacements as needed

@@ -28,8 +28,8 @@ if ( isset($_GET['sort'])  ) {
     $sort_options = [
         'most_relevant' => [
             'key' => '', // No specific key for most relevant
-            'orderby' => 'date', // Default orderby
-            'order' => 'DESC', // Default order
+            'orderby'        => 'date',  // Order by date
+            'order'          => 'ASC',   // Oldest first
         ],
         'highest_rated' => [
             'key' => 'ratings_stars', // Meta key for rating
@@ -99,9 +99,50 @@ if (!empty($meta_query)) {
 $context = Timber::context();
 $posts_data = Timber::get_posts( $args  );
 
+
+
+
+// Fetch posts
+$posts_query = $posts_data;
+
+// Convert Timber\PostQuery to an array of Timber\Post objects using to_array()
+$posts = $posts_query->to_array();
+
+// Check if any post has the 'show_top' tag
+$has_show_top_tag = false;
+foreach ($posts as $post) {
+    if (has_tag('show_top', $post->ID)) {
+        $has_show_top_tag = true;
+        break;
+    }
+}
+
+// If 'show_top' tag exists, prioritize those posts
+if ($has_show_top_tag) {
+    usort($posts, function ($a, $b) {
+        $a_has_tag = has_tag('show_top', $a->ID);
+        $b_has_tag = has_tag('show_top', $b->ID);
+
+        if ($a_has_tag && !$b_has_tag) {
+            return -1; // $a comes first
+        } elseif (!$a_has_tag && $b_has_tag) {
+            return 1; // $b comes first
+        } else {
+            return 0; // No change in order
+        }
+    });
+}
+
+
+
+
+
+
+
+
 $context = Timber::context([
-    'posts' => $posts_data,
-    'pagination' => $posts_data,
+    'posts' => $posts,
+    'pagination' => $posts,
 
 ]);
 

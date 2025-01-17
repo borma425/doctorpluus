@@ -40,6 +40,8 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+    position: relative;
+    left: 4rem;
 }
 
 .sort-label {

@@ -5,14 +5,22 @@
 {% set genderText = (doctor.meta('gender') == 'Man') ? 'دكتور' : 'دكتورة' %}
 
 
-
+<br><br>
 <header>
         <div class="header">
             <div class="container">
                 <div class="header-content text-secondary">
-                    <h3 class="pt-3 fw-bold">احجز مع  {{ genderText }}  {{ doctor.title }} </h3>
-                    <h6>احجز اونلاين او كلم <span> <i class="fa-solid fa-phone fa-rotate-270 second-color fs-5 pt-1"></i>
-                        </span>  {{ doctor.meta('phone_number') }} </h6>
+                    <h1 class="pt-3 fw-bold fs-3">احجز مع  {{ genderText }}  {{ doctor.title }} </h1>
+
+
+<a class="text-decoration-none" href="tel:{{ doctor.meta('phone_number') }}">
+  احجز اونلاين او كلم 
+    <span>
+        <i class="fa-solid fa-phone fa-rotate-270 second-color fs-5 pt-1"></i>
+    </span> 
+    <span>{{ doctor.meta('phone_number') }}</span>
+</a>
+
                 </div>
             </div>
         </div>

@@ -17,6 +17,7 @@ foreach ($phpFiles as $file) {
 new hero_header();
 new why_us();
 new Feedbacks_Customizer();
+new main_edit();
 
 new logos();
 new footerPlus();
