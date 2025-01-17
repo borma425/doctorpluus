@@ -9,18 +9,15 @@
  <div class="container">
             <div class="main-section text-secondary">
                 <div class="cards mt-5">
-                    <div class="card-section-header d-flex justify-content-between align-items-center">
-                        <div class="cards-header">
-                    {% if posts %}
-                            <h4> <strong>{{ post.title }}  </strong> <span class="fs-6"> {{ posts|length }} أطباء</span> </h4>
-                       {% else %}
-                            <h4> لا يوجد نتائج مطابقة لصفحتك </h4>
-                       {% endif %}
-                       
-                                               </div>
-
-
-                    </div>
+<div class="card-section-header d-flex flex-column flex-sm-row justify-content-between align-items-center">
+    <div class="cards-header d-block">
+        {% if posts %}
+            <h4> <strong>{{ post.title }}</strong> <span class="fs-6">{{ posts|length }} أطباء</span> </h4>
+        {% else %}
+            <h4>لا يوجد نتائج مطابقة لصفحتك</h4>
+        {% endif %}
+    </div>
+</div>
 
 
 

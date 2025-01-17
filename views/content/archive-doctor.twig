@@ -9,44 +9,42 @@
  <div class="container">
             <div class="main-section text-secondary">
                 <div class="cards mt-5">
-                    <div class="card-section-header d-flex justify-content-between align-items-center">
-                        <div class="cards-header">
-                            <h4> <strong>أحجز مع أفضل الأطباء في مصر ~   </strong> <span class="fs-6"> {{ posts|length }} أطباء</span> </h4>
-                        </div>
-
-                        <div class="sort-container">
-                            <span class="sort-label">ترتيب:</span>
-                            <div class="dropdown-wrapper">
-                                <input type="checkbox" id="dropdown-toggle" class="toggle-dropdown">
-                                <label id="main_input_filter1" for="dropdown-toggle" class="dropdown-btn">الأكثر تطابقا</label>
-                                <form id="filter1_inputs" class="dropdown-content" method="get" action="{{ site.url }}">
-                <input type="hidden" name="s" value="filter1" aria-label="بحث" />
-
-                                    <label class="radio-option">
-                                        <input type="radio" name="sort" value="most_relevant" checked>
-                                        الأكثر تطابقا
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="sort" value="highest_rated">
-                                        أعلي التقييمات
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="sort" value="lowest_price">
-                                        الأقل سعراً
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="sort" value="highest_price">
-                                        الأعلى سعراً
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="sort" value="shortest_wait_time">
-                                        أقل وقت للإنتظار
-                                    </label>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
+<div class="card-section-header d-flex flex-column flex-sm-row justify-content-between align-items-center">
+    <div class="cards-header d-block">
+        <h4> <strong>أحجز مع أفضل الأطباء في مصر ~   </strong> <span class="fs-6"> 2 أطباء</span> </h4>
+    </div>
+    <br class="d-none d-sm-block"> <!-- Hide <br> on small screens -->
+    <div class="sort-container">
+        <span class="sort-label">ترتيب:</span>
+        <div class="dropdown-wrapper">
+            <input type="checkbox" id="dropdown-toggle" class="toggle-dropdown">
+            <label id="main_input_filter1" for="dropdown-toggle" class="dropdown-btn">الأكثر تطابقا</label>
+            <form id="filter1_inputs" class="dropdown-content" method="get" action="http://localhost/doctorpluss">
+                <input type="hidden" name="s" value="filter1" aria-label="بحث">
+                <label class="radio-option">
+                    <input type="radio" name="sort" value="most_relevant" checked="">
+                    الأكثر تطابقا
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="sort" value="highest_rated">
+                    أعلي التقييمات
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="sort" value="lowest_price">
+                    الأقل سعراً
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="sort" value="highest_price">
+                    الأعلى سعراً
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="sort" value="shortest_wait_time">
+                    أقل وقت للإنتظار
+                </label>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 
@@ -133,9 +131,9 @@
                                                 class="fa-solid fa-phone fa-rotate-270 fs-5 pt-1 main-color ms-2 fs-6"></i>
                                            {{ doctor.meta('phone_number') }} </p>
 
-                                        <a href="{{ doctor.link }}"><button
-                                                class="btn btn-outline-info mt-3 px-4">أعرض الملف
-                                                كاملا</button></a>
+<a href="{{ doctor.link }}">
+    <button class="btn btn-outline-info mt-3 px-4 d-block d-sm-none">أعرض الملف كاملا</button>
+</a>
                                     </div>
                                 </div>
                             </div>
