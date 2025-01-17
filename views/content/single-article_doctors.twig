@@ -12,7 +12,20 @@
 <div class="card-section-header d-flex flex-column flex-sm-row justify-content-between align-items-center">
     <div class="cards-header d-block">
         {% if posts %}
-            <h4> <strong>{{ post.title }}</strong> <span class="fs-6">{{ posts|length }} أطباء</span> </h4>
+
+<div>
+    <h3 class="pt-3 fw-bold"> {{ post.title }}    </h3>
+
+<a class="text-decoration-none" href="tel:01091125831">
+    احجز اونلاين او كلم 
+    <span>
+        <i class="fa-solid fa-phone fa-rotate-270 second-color fs-5 pt-1"></i>
+    </span> 
+    <span style="color: blue;">01091125831</span>
+</a>
+<p>{{ posts|length }}   من الأطباء</p>
+</div>
+
         {% else %}
             <h4>لا يوجد نتائج مطابقة لصفحتك</h4>
         {% endif %}
@@ -103,9 +116,9 @@
                                                 class="fa-solid fa-phone fa-rotate-270 fs-5 pt-1 main-color ms-2 fs-6"></i>
                                            {{ doctor.meta('phone_number') }} </p>
 
-                                        <a href="{{ doctor.link }}"><button
+{#                                         <a href="{{ doctor.link }}"><button
                                                 class="btn btn-outline-info mt-3 px-4">أعرض الملف
-                                                كاملا</button></a>
+                                                كاملا</button></a> #}
                                     </div>
                                 </div>
                             </div>

@@ -87,7 +87,7 @@ $supports = array(
     }
 
     function custom_cpts() {
-         create_post_type('doctors', 'doctors','dashicons-insert-before'); 
+         create_post_type('Doctors', 'Doctors','dashicons-insert-before'); 
          create_post_type('orders', 'orders','dashicons-image-rotate-right'); 
          create_post_type('article_doctors', 'article_doctors','dashicons-table-row-after'); 
 
