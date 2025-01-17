@@ -1,0 +1,197 @@
+{% extends "base.twig" %}
+
+{% block grid_content %}
+
+{% set genderText = (doctor.meta('gender') == 'Man') ? 'دكتور' : 'دكتورة' %}
+
+
+
+<header>
+        <div class="header">
+            <div class="container">
+                <div class="header-content text-secondary">
+                    <h3 class="pt-3 fw-bold">احجز مع  {{ genderText }}  {{ doctor.title }} </h3>
+                    <h6>احجز اونلاين او كلم <span> <i class="fa-solid fa-phone fa-rotate-270 second-color fs-5 pt-1"></i>
+                        </span>  {{ doctor.meta('phone_number') }} </h6>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- main-section -->
+    <main>
+        <div class="container">
+            <div class="main-section text-secondary">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="cards mt-5">
+                            <!-- doctor details -->
+                            <div class="card mb-3 mt-3 text-secondary bg-body-tertiary">
+                                <div class="row img-card gx-0">
+                                    <div class="col-2">
+                                        <div class="doctor-img">
+                                            <img src="{{ doctor.meta('doctor_photo')|resize(250,250) }}"
+                                                class="doctor-image rounded-circle m-2  w-100 border border-danger border-4"
+                                                alt="doctor-image">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-10">
+                                        <div class="doctor-infos">
+                                            <div class="card-body">
+                                                <h4 class="card-title m-0 main-color fw-semibold"><span
+                                                        class="fs-5">{{ genderText }}</span>
+                                                   {{ doctor.title }}
+                                                    </h4>
+
+<div class="col-md-7 col-8 d-none d-md-block">
+    <div class="doctor-info m-2">
+        <p> 
+            <i class="fa-solid fa-location-dot main-color ms-2 fs-6"></i>
+            {{ doctor.meta('address') }}
+        </p>
+        <p> 
+            <i class="fa-solid fa-money-bill-1-wave main-color ms-2 fs-6"></i> الكشف :
+            {{ doctor.meta('detection_price') }}
+        </p>
+        <p> 
+            <i class="fa-solid fa-stopwatch main-color ms-2 fs-6"></i> مدة الانتظار :
+            {{ doctor.meta('waiting_time') }}
+        </p>
+        <p> 
+            <i class="fa-solid fa-phone fa-rotate-270 fs-5 pt-1 main-color ms-2 fs-6"></i>
+            {{ doctor.meta('phone_number') }}
+        </p>
+    </div>
+</div>
+
+
+                                                <div class="doctor-stars mt-2">
+{% set rating = doctor.meta('ratings_stars') %}
+    {% for i in 1..5 %}
+        {% if i <= rating %}
+<i class="fa-solid fa-star"></i>
+
+        {% else %}
+  <i class="fa-regular fa-star"></i>
+        {% endif %}
+    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="doctors-times d-md-block d-none mt-5">
+
+                            <!-- Working-hours -->
+                            <div class="Working-card d-flex justify-content-start">
+                                <div class="Working-hours w-100">
+                                    <div class="card text-center bg-body-tertiary">
+                                        <div class="card-header text-white main-bg fs-5">
+                                            <span> {{ doctor.meta('booking_date') }} </span>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text main-color"> {{ doctor.meta('start_time') }} </p>
+                                            <p class="card-text main-color">  {{ doctor.meta('end_time') }} </p>
+                                        </div>
+                                        <div  data-did="{{ doctor.id }}" class="book_now card-footer second-bg text-white fs-5" data-bs-toggle="modal"
+                                            data-bs-target="#Modal1" data-bs-whatever="@mdo">
+                                            <span>أحجز الأن</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards">
+                    <!-- doctor details -->
+                    <div class="card mb-3 text-secondary bg-body-tertiary pt-2 doctor-details-card">
+                        <h5 class="m-2 fw-bolder"> <i class="fa-solid fa-circle-info main-color"></i> معلومات عن الدكتور
+                        </h5>
+
+                        <p class="doctor-details-info fw-bolder pt-2">
+ {{ doctor.excerpt.read_more(false)|nl2br }}
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <button data-did="{{ doctor.id }}" class="book_now btn btn-info w-100 fixed-bottom btn-now rounded-0 d-none" data-bs-toggle="modal"
+        data-bs-target="#Modal1" data-bs-whatever="@mdo">احجز الان - الدكتور يشترط الحجز المسبق</button>
+
+    <!-- model -->
+    <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form method="POST" action="{{ site.url }}/wp-admin/admin-post.php" class="modal-content">
+                        <input type="hidden" name="action" value="submit_order_form">
+                        <input type="hidden" id="did" name="did" value="">
+
+                             {{ function('wp_nonce_field', 'submit_order_form_nonce', 'order_form_nonce', true) }}
+
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+               
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">الأسم :
+                            </label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="col-form-label"  required>رقم التليفون
+                                :
+                            </label>
+                            <input type="tel" class="form-control" id="phone" name="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">الأيميل :
+                            </label>
+                            <input type="email" class="form-control" id="email"  name="email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">احجز موعد</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<script>
+
+// Select all elements with the class 'book_now'
+const bookNowButtons = document.querySelectorAll('.book_now');
+
+// Add a click event listener to each button
+bookNowButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Get the 'data-doctor' attribute value of the clicked element
+        const doctorValue = this.getAttribute('data-did');
+        
+          document.getElementById('did').value = doctorValue;
+    });
+});
+
+</script>
+
+
+{% endblock %}

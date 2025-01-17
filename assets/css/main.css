@@ -1,0 +1,291 @@
+/* global style */
+body {
+    font-family: "Noto Kufi Arabic", serif;
+    background-color: #E2E6EA;
+}
+
+.main-bg,
+.btn-info {
+    background-color: #389AE1;
+}
+
+.second-bg {
+    background-color: #F05B61;
+}
+
+.second-color {
+    color: #F05B61;
+}
+
+.main-color {
+    color: #389AE1;
+}
+
+/* main-section */
+.dropdown p {
+    font-size: 14px;
+}
+
+.dropdown p span {
+    color: #0070CD;
+}
+
+.dropdown p span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* dropdown */
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sort-label {
+    color: #666;
+    font-size: 14px;
+}
+
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.toggle-dropdown {
+    display: none;
+}
+
+.dropdown-btn {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    cursor: pointer;
+    min-width: 150px;
+    text-align: right;
+    position: relative;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.dropdown-btn:after {
+    content: '';
+    border: solid #666;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    transition: transform 0.2s;
+}
+
+.toggle-dropdown:checked+.dropdown-btn:after {
+    transform: rotate(-135deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    z-index: 1000;
+    margin-top: 4px;
+}
+
+.toggle-dropdown:checked~.dropdown-content {
+    display: block;
+}
+
+.radio-option {
+    display: block;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.radio-option:hover {
+    background-color: #f5f5f5;
+}
+
+.radio-option input[type="radio"] {
+    margin-left: 8px;
+}
+
+/* doctor cards */
+.doctor-stars {
+    color: #F09E17;
+}
+
+.doctor-info p {
+    margin: 0;
+    padding: 0;
+}
+
+.Working-hours p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.Working-hours .card-footer:hover {
+    cursor: pointer;
+}
+
+/* pagination */
+.pagination a {
+    font-size: 25px;
+}
+
+/* footer */
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+.doctor-details-card {
+    padding: 100px !important;
+}
+
+
+/* home */
+/* home-header */
+.home-header {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* customers */
+.w-15 {
+    width: 15%;
+}
+
+/* doctors */
+.doctors .card:hover {
+    cursor: pointer;
+}
+
+/* articles */
+.articles .card:hover {
+    cursor: pointer;
+}
+
+/* media */
+@media (max-width: 575.98px) {
+
+    .Working-card span,
+    .Working-card p {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .header-content p {
+        display: none;
+    }
+
+    .main-section .cards-header {
+        display: none;
+    }
+
+    .Working-card {
+        padding: 10px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .Working-card .card {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+
+    .Working-card .card-body {
+        margin: 0 !important;
+        padding-block: 0 !important;
+        padding-inline: 20px !important;
+    }
+
+    .Working-hours {
+        width: 100%;
+    }
+
+    .card-body p {
+        font-size: 12px;
+    }
+
+    .doctor-info p {
+        font-size: 10px;
+    }
+
+    .img-card {
+        background-color: #E9ECEF;
+        overflow: hidden;
+    }
+
+    .btn-now {
+        display: block !important;
+    }
+
+    .doctor-details-card {
+        padding: 30px !important;
+    }
+
+    .doctor-details-info {
+        font-weight: normal !important;
+    }
+
+    .home-header h5{
+        font-size: 14px;
+    }
+
+    .footer{
+        flex-direction: column !important;
+
+        text-align: center;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-img {
+        width: 100% !important;
+    }
+
+    .Working-hours .card-header,
+    .Working-hours .card-text,
+    .Working-hours .card-footer {
+        font-size: small !important;
+    }
+
+    footer .badges img {
+        width: 60% !important;
+    }
+
+    footer .footer-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main .card-section-header h4 {
+        font-size: medium;
+    }
+
+    .doctor-info button {
+        display: none;
+    }
+}

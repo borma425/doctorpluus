@@ -1,0 +1,39 @@
+{% if best_doctors %}
+<style>
+.card-title {
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>
+
+        <!-- articles -->
+        <div id="articles" class="articles py-5 bg-body-secondary">
+            <div class="container">
+                <h2 class="text-center py-5">أحدث المقالات</h2>
+
+                <div class="row pb-5 g-3">
+
+
+        {% for post in posts %}
+                    <a href="{{ post.link }}" class="col-md-4 text-decoration-none">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <h5 class="card-title main-color">{{ post.title }}</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"> {{ post.excerpt({ words: 12, read_more: '' }) }}    </h6>
+                                <p class="card-text"> <i class="fa-regular fa-calendar-days"></i> {{ post.date }}</p>
+                            </div>
+                        </div>
+                    </a>
+
+{% endfor %}
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+        {% endif %}

@@ -1,0 +1,24 @@
+{% set title       =  site.theme.theme_mod('basic-hero_header-callout-title') %}
+{% set description =  site.theme.theme_mod('basic-hero_header-callout-desc') %}
+{% set sub_description =  site.theme.theme_mod('basic-hero_header-callout-sub_desc') %}
+{% set background =  site.theme.theme_mod('basic-hero_header-callout-image') %}
+
+
+
+
+    <!-- header -->
+    <header style="background-image: url({{ background  }});" id="home-header"
+        class="home-header text-center d-flex justify-content-center align-items-center flex-column">
+        <div class="container">
+            <h1 class="mb-4"> {{title}} </h1>
+            <h2 class="mb-3"> {{description}}</h2>
+
+            <h5>
+     {{sub_description|nl2br }}
+                
+                </h5>
+
+            <a href=" {{fn('CPT_Redirect_link','doctors').link }}"><button class="btn btn-primary px-5 mt-3">  احجز الآن <i
+                        class="fa-solid fa-user-doctor pe-2"></i> </button></a>
+        </div>
+    </header>

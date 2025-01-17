@@ -1,0 +1,39 @@
+
+        <!-- customers -->
+        <div id="customers" class="customers py-5 my-5">
+            <div class="container">
+                <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+                    <div class="carousel-inner">
+
+
+
+
+
+{% for feedback in feedbacks.items %}
+                        <div class="{{ loop.first ? 'active' : '' }} carousel-item text-center">
+                            <div class="container-info d-flex justify-content-center align-items-center flex-column">
+                                <img src="{{ feedback.avatar }}" class="d-block w-15" alt="customer">
+                                <h3 class="mb-2">{{ feedback.title }} </h3>
+                                <p>
+{{ feedback.description }}
+                                </p>
+                            </div>
+                        </div>
+
+{% endfor %}
+
+
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>

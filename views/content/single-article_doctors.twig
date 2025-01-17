@@ -1,0 +1,296 @@
+{% extends "base.twig" %}
+
+{% block grid_content %}
+
+
+
+    <main>
+
+ <div class="container">
+            <div class="main-section text-secondary">
+                <div class="cards mt-5">
+                    <div class="card-section-header d-flex justify-content-between align-items-center">
+                        <div class="cards-header">
+                    {% if posts %}
+                            <h4> <strong>{{ post.title }}  </strong> <span class="fs-6"> {{ posts|length }} أطباء</span> </h4>
+                       {% else %}
+                            <h4> لا يوجد نتائج مطابقة لصفحتك </h4>
+                       {% endif %}
+                       
+                                               </div>
+
+
+                    </div>
+
+
+
+
+
+
+{% for doctor in posts %}
+
+{% set genderText = (doctor.meta('gender') == 'Man') ? 'دكتور' : 'دكتورة' %}
+
+
+                    <!-- doctor cards -->
+                    <div class="card mb-3 mt-3 text-secondary rounded-4 bg-body-tertiary">
+                        <div class="row g-0">
+                            <div class="col-md-9">
+                                <div class="row img-card">
+                                    <div class="col-3">
+                                        <div class="doctor-img">
+                                            <img src="{{ doctor.meta('doctor_photo')|resize(250,250) }}"
+                                                class="doctor-image rounded-circle m-2  w-100 border border-danger border-4"
+                                                alt="doctor-image">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-9">
+                                        <a class="text-decoration-none text-secondary" href="{{ doctor.link }}">
+                                            <div class="doctor-infos">
+                                                <div class="card-body">
+                                                    <h6 class="card-title m-0 main-color fw-semibold"><span
+                                                            class="fs-5">{{ genderText }}</span>
+                                                     {{ doctor.title }}
+                                                        
+                                                        </h6>
+                                                    <p class="card-text m-0 p-0">
+{{ doctor.excerpt.read_more(false) }}
+
+
+                                                        
+                                                        </p>
+
+                                                    <div class="doctor-stars mt-2">
+
+                                                      
+
+{% set rating = doctor.meta('ratings_stars') %}
+    {% for i in 1..5 %}
+        {% if i <= rating %}
+<i class="fa-solid fa-star"></i>
+
+        {% else %}
+  <i class="fa-regular fa-star"></i>
+        {% endif %}
+    {% endfor %}
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-7 col-8">
+                                    <div class="doctor-info m-2">
+                                        <p> <i class="fa-solid fa-location-dot main-color ms-2 fs-6"></i>
+                                        
+{{ doctor.meta('address') }}
+
+                                            
+                                            </p>
+                                        <p> <i class="fa-solid fa-money-bill-1-wave main-color ms-2 fs-6"></i> الكشف :
+                                           {{ doctor.meta('detection_price') }}     </p>
+                                           
+                                        <p class=""> <i class="fa-solid fa-stopwatch main-color ms-2 fs-6"></i> مدة
+                                            الانتظار :
+                                         {{ doctor.meta('waiting_time') }}
+                                            
+                                            </p>
+                                        <p> <i
+                                                class="fa-solid fa-phone fa-rotate-270 fs-5 pt-1 main-color ms-2 fs-6"></i>
+                                           {{ doctor.meta('phone_number') }} </p>
+
+                                        <a href="{{ doctor.link }}"><button
+                                                class="btn btn-outline-info mt-3 px-4">أعرض الملف
+                                                كاملا</button></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Working-hours -->
+                            <div
+                                class="Working-card col-md-3 me-auto d-flex justify-content-end align-items-center ps-5 p-2">
+                                <div class="Working-hours">
+                                    <div class="card text-center bg-body-tertiary">
+                                        <div class="card-header text-white main-bg fs-5">
+                                            <span>  {{ doctor.meta('booking_date') }} </span>
+                                        </div>
+                                        <div class="card-body my-3">
+                                            <p class="card-text main-color"> {{ doctor.meta('start_time') }} </p>
+                                            <p class="card-text main-color">  {{ doctor.meta('end_time') }} </p>
+                                        </div>
+                                        <div data-did="{{ doctor.id }}" class="book_now card-footer second-bg text-white fs-5" data-bs-toggle="modal"
+                                            data-bs-target="#Modal1" data-bs-whatever="@mdo">
+                                            <span>أحجز الأن</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+            {% endfor %}
+
+
+
+
+
+
+    <!-- model -->
+    <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form method="POST" action="{{ site.url }}/wp-admin/admin-post.php" class="modal-content">
+                        <input type="hidden" name="action" value="submit_order_form">
+                        <input type="hidden" id="did" name="did" value="">
+
+                             {{ function('wp_nonce_field', 'submit_order_form_nonce', 'order_form_nonce', true) }}
+
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+               
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">الأسم :
+                            </label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="col-form-label"  required>رقم التليفون
+                                :
+                            </label>
+                            <input type="tel" class="form-control" id="phone" name="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">الأيميل :
+                            </label>
+                            <input type="email" class="form-control" id="email"  name="email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">احجز موعد</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+{% if pagination.pagination.pages is not empty %}
+
+        <!-- pagination -->
+        <div class="pagination d-flex justify-content-center align-items-center my-3">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination p-0">
+            {% if pagination.pagination.prev %}
+
+                    <li class="page-item">
+                        <a class="page-link" href="{{ pagination.pagination.prev.link }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+            {% endif %}
+            {% for page in pagination.pagination.pages %}
+
+                    <li class="page-item"><a class="page-link" href="{{ page.link }}">{{ page.title }}</a></li>
+            {% endfor %}
+
+            {% if pagination.pagination.next %}
+
+                    <li class="page-item">
+                        <a class="page-link" href="{{pagination.pagination.next.link }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+            {% endif %}
+                    
+                </ul>
+            </nav>
+        </div>
+{% endif %}
+
+
+
+    </main>
+
+
+<script>
+// Function to get the value of a URL parameter by name
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&'); // Escape special characters
+    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    const results = regex.exec(url);
+    if (!results) return null; // Parameter not found
+    if (!results[2]) return ''; // Parameter has no value
+    return decodeURIComponent(results[2].replace(/\+/g, ' ')); // Decode URI component
+}
+
+// Set the correct radio button as checked based on the 'sort' parameter in the URL
+const selectedSort = getParameterByName('sort');
+if (selectedSort) {
+    const radioButton = document.querySelector(`#filter1_inputs input[name="sort"][value="${selectedSort}"]`);
+    if (radioButton) {
+        radioButton.checked = true;
+        console.log(`Radio button with value "${selectedSort}" is now checked.`);
+     const selectedLabel = radioButton.closest('label').textContent.trim();
+        document.getElementById('main_input_filter1').textContent = selectedLabel;
+    } else {
+        console.log(`No radio button found with value "${selectedSort}".`);
+    }
+}
+
+// Add event listener to all radio inputs
+document.querySelectorAll('#filter1_inputs input[type="radio"]').forEach((radio) => {
+    radio.addEventListener('change', function() {
+        // Submit the form when a radio button is clicked
+        document.getElementById('filter1_inputs').submit();
+    });
+});
+    
+
+
+
+// Select all elements with the class 'book_now'
+const bookNowButtons = document.querySelectorAll('.book_now');
+
+// Add a click event listener to each button
+bookNowButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Get the 'data-doctor' attribute value of the clicked element
+        const doctorValue = this.getAttribute('data-did');
+        
+          document.getElementById('did').value = doctorValue;
+    });
+});
+
+</script>
+
+
+{% endblock %}

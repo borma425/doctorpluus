@@ -1,0 +1,47 @@
+<style>
+.icon-container {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+.icon {
+  width: 70px;
+  height: 70px; 
+  object-fit: contain; 
+
+}
+
+</style>
+
+   <!-- why as -->
+        <div id="why-as" class="why-as py-5 mb-5">
+            <div class="container">
+                <h2 class="text-center py-5">{{ why_us.main_title }}  </h2>
+
+                <div class="row g-3">
+
+{% for section in why_us.sections %}
+                    <div class="col-md-4">
+                        <div class="card shadow-lg">
+<div class="icon-container">
+  <img src="{{ section.icon }}" alt="Icon" class="icon mt-4 ">
+</div>
+
+                            <div class="card-body">
+                                <h5 class="card-title text-center mb-3">{{ section.title }}  </h5>
+                                <ul class="ps-0 pe-3 list-unstyled">
+{{   section.description|replace({'\n': '</li><li>'})|raw }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+{% endfor %}
+
+
+
+
+
+                </div>
+            </div>
+        </div>

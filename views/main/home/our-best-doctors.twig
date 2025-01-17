@@ -1,0 +1,43 @@
+{% if best_doctors %}
+        <!-- doctors -->
+        <div id="doctors" class="doctors py-5 mb-5 bg-body-secondary">
+            <div class="container">
+                <h2 class="text-center py-5">بعضا من خبرائنا</h2>
+
+                <div class="row g-3">
+
+
+                        {% for doctor in best_doctors %}
+                    <a href="{{ doctor.link }}" class="col-md-3 col-6 text-decoration-none">
+                        <div class="card shadow-lg">
+                            <img src="{{ doctor.meta('doctor_photo')|resize(350,350) }}" class="card-img-top" alt="doctor">
+                            <div class="card-body">
+                                <h5 class="card-title">د/{{ doctor.title }} <i
+                                        class="fa-regular fa-circle-check main-color"></i></h5>
+
+                                <div class="doctor-stars mt-2">
+   {% set rating = doctor.meta('ratings_stars') %}
+    {% for i in 1..5 %}
+        {% if i <= rating %}
+<i class="fa-solid fa-star"></i>
+
+        {% else %}
+  <i class="fa-regular fa-star"></i>
+        {% endif %}
+    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+        {% endfor %}
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+{% endif %}

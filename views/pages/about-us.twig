@@ -1,0 +1,422 @@
+{% extends "base.twig" %}
+
+{% block grid_content %}
+
+<style>
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/46414b80131c0a1a6d727df4d892e128.css?ver=2e128 ; media=all */
+@media all{
+*,:after,:before{box-sizing:border-box;}
+main,section{display:block;}
+h1,h2,h3,h4,h5{margin-top:0;margin-bottom:.5rem;}
+p{margin-top:0;margin-bottom:1rem;}
+a{color:#007bff;text-decoration:none;background-color:transparent;-webkit-text-decoration-skip:objects;}
+a:hover{color:#0056b3;text-decoration:underline;}
+img{vertical-align:middle;border-style:none;}
+svg:not(:root){overflow:hidden;}
+h1,h2,h3,h4,h5{margin-bottom:.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit;}
+h1{font-size:2.5rem;}
+h2{font-size:2rem;}
+h3{font-size:1.75rem;}
+h4{font-size:1.5rem;}
+h5{font-size:1.25rem;}
+.mt-1{margin-top:.25rem!important;}
+.p-1{padding:.25rem!important;}
+@media print{
+*,:after,:before{text-shadow:none!important;box-shadow:none!important;}
+a:not(.btn){text-decoration:underline;}
+img{page-break-inside:avoid;}
+h2,h3,p{orphans:3;widows:3;}
+h2,h3{page-break-after:avoid;}
+}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/822e948e08803a9ab765e023da471383.css?ver=71383 ; media=all */
+@media all{
+[class*=" icon-"]{font-family:'icon'!important;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/33da9e88d3bf6a0303e48a7ce1a90977.css?ver=90977 ; media=all */
+@media all{
+*:after,*:before,a,.dc-main{-webkit-transition:all .3s ease-in-out;-moz-transition:all .3s ease-in-out;-ms-transition:all .3s ease-in-out;-o-transition:all .3s ease-in-out;transition:all .3s ease-in-out;}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/50a15d2fba3303a156db68928a7a65cc.css?ver=a65cc ; media=all */
+@media all{
+*{margin:0;padding:0;}
+body h1,body h2,body h3,body h4,body h5{color:var(--terthemecolor);margin:0;font-weight:700;line-height:1.5;font-style:normal;font-family:'Poppins',Arial,Helvetica,sans-serif;}
+h1{font-size:36px;}
+h2{font-size:28px;}
+h3{font-size:24px;}
+h4{font-size:18px;}
+h5{font-size:16px;}
+p{margin:0 0 20px;line-height:1.6em;letter-spacing:normal;font-family:'Open Sans',Arial,Helvetica,sans-serif;}
+a{text-decoration:none;}
+a:hover,a:focus,a:active{outline:0;text-decoration:none;}
+img{height:auto;max-width:100%;}
+.dc-haslayout{width:100%;float:left;background: white;}
+a,a:hover,a:focus,a:active{color:var(--themecolor);}
+.dc-main{padding:100px 0;}
+.elementor-widget:not(:last-child){margin-bottom:0!important;}
+.dc-breadcrumbarea+.dc-main{padding:80px 0 100px;}
+}
+/*! CSS Used from: Embedded */
+body p{font-family:Noto Naskh Arabic;font-weight:400;font-size:17px;line-height:33px;color:#000000;}
+body h1{font-family:Saira;font-weight:500;text-align:inherit;font-size:24px;line-height:30px;color:#dd3333;}
+body h2{font-family:Saira;font-weight:400;font-size:32px;line-height:40px;color:#000000;}
+body h3{font-family:Saira;font-weight:400;font-size:24px;line-height:30px;color:#333;}
+body h4{font-family:Saira;font-weight:400;font-size:22px;line-height:30px;color:#333;}
+body h5{font-family:Saira;font-weight:400;font-size:20px;line-height:30px;color:#333;}
+h1,h2{margin-top:20px;margin-bottom:20px;}
+p{margin-top:10px;margin-bottom:10px;}
+@media (max-width: 768px){
+h1,h2{margin-top:15px;margin-bottom:15px;}
+p{margin-top:8px;margin-bottom:8px;}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/ff747b035184bc9a7b33de1be748372f.css?ver=8372f ; media=all */
+@media all{
+.elementor *,.elementor :after,.elementor :before{box-sizing:border-box;}
+.elementor a{box-shadow:none;text-decoration:none;}
+.elementor img{border:none;border-radius:0;box-shadow:none;height:auto;max-width:100%;}
+.elementor-widget-wrap .elementor-element.elementor-widget__width-initial{max-width:100%;}
+.elementor-element{--flex-direction:initial;--flex-wrap:initial;--justify-content:initial;--align-items:initial;--align-content:initial;--gap:initial;--flex-basis:initial;--flex-grow:initial;--flex-shrink:initial;--order:initial;--align-self:initial;align-self:var(--align-self);flex-basis:var(--flex-basis);flex-grow:var(--flex-grow);flex-shrink:var(--flex-shrink);order:var(--order);}
+.elementor-element:where(.e-con-full,.elementor-widget){align-content:var(--align-content);align-items:var(--align-items);flex-direction:var(--flex-direction);flex-wrap:var(--flex-wrap);gap:var(--row-gap) var(--column-gap);justify-content:var(--justify-content);}
+.elementor-align-center{text-align:center;}
+.elementor-align-right{text-align:right;}
+.elementor-align-center .elementor-button,.elementor-align-right .elementor-button{width:auto;}
+@media (max-width:767px){
+.elementor-mobile-align-center{text-align:center;}
+.elementor-mobile-align-center .elementor-button{width:auto;}
+}
+.elementor-section{position:relative;}
+.elementor-section .elementor-container{display:flex;margin-left:auto;margin-right:auto;position:relative;}
+@media (max-width:1024px){
+.elementor-section .elementor-container{flex-wrap:wrap;}
+}
+.elementor-section.elementor-section-boxed>.elementor-container{max-width:1140px;}
+.elementor-widget-wrap{align-content:flex-start;flex-wrap:wrap;position:relative;width:100%;}
+.elementor:not(.elementor-bc-flex-widget) .elementor-widget-wrap{display:flex;}
+.elementor-widget-wrap>.elementor-element{width:100%;}
+.elementor-widget{position:relative;}
+.elementor-widget:not(:last-child){margin-bottom:var(--kit-widget-spacing,20px);}
+.elementor-column{display:flex;min-height:1px;position:relative;}
+.elementor-column-gap-default>.elementor-column>.elementor-element-populated{padding:10px;}
+.elementor-inner-section .elementor-column-gap-no .elementor-element-populated{padding:0;}
+@media (min-width:768px){
+.elementor-column.elementor-col-20{width:20%;}
+.elementor-column.elementor-col-33{width:33.333%;}
+.elementor-column.elementor-col-50{width:50%;}
+.elementor-column.elementor-col-100{width:100%;}
+}
+@media (min-width:768px) and (max-width:1024px){
+.elementor-reverse-tablet>.elementor-container>:first-child{order:10;}
+.elementor-reverse-tablet>.elementor-container>:nth-child(2){order:9;}
+}
+@media (min-width:-1) and (max-width:1024px){
+.elementor-reverse-tablet>.elementor-container>:first-child{order:10;}
+.elementor-reverse-tablet>.elementor-container>:nth-child(2){order:9;}
+}
+@media (min-width:768px) and (max-width:-1){
+.elementor-reverse-tablet>.elementor-container>:first-child,.elementor-reverse-tablet>.elementor-container>:nth-child(2){order:0;}
+}
+@media (max-width:767px){
+.elementor-reverse-mobile>.elementor-container>:first-child{order:10;}
+.elementor-reverse-mobile>.elementor-container>:nth-child(2){order:9;}
+.elementor-column{width:100%;}
+}
+.elementor-element .elementor-widget-container,.elementor-element:not(:has(.elementor-widget-container)){transition:background .3s,border .3s,border-radius .3s,box-shadow .3s,transform var(--e-transform-transition-duration,.4s);}
+.elementor-heading-title{line-height:1;margin:0;padding:0;}
+.elementor-button{background-color:#69727d;border-radius:3px;color:#fff;display:inline-block;font-size:15px;line-height:1;padding:12px 24px;fill:#fff;text-align:center;transition:all .3s;}
+.elementor-button:focus,.elementor-button:hover,.elementor-button:visited{color:#fff;}
+.elementor-button-content-wrapper{display:flex;flex-direction:row;gap:5px;justify-content:center;}
+.elementor-button-text{display:inline-block;}
+.elementor-button span{text-decoration:inherit;}
+.elementor-view-stacked .elementor-icon{background-color:#69727d;color:#fff;padding:.5em;fill:#fff;}
+.elementor-icon{color:#69727d;display:inline-block;font-size:50px;line-height:1;text-align:center;transition:all .3s;}
+.elementor-icon:hover{color:#69727d;}
+.elementor-icon svg{display:block;height:1em;position:relative;width:1em;}
+.elementor-icon svg:before{left:50%;position:absolute;transform:translateX(-50%);}
+.elementor-shape-square .elementor-icon{border-radius:0;}
+.elementor-shape-circle .elementor-icon{border-radius:50%;}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/9e6fc43722d95c4d12284249c2ebb6ae.css?ver=bb6ae ; media=all */
+@media all{
+.elementor-section.elementor-section-boxed>.elementor-container{max-width:1140px;}
+.elementor-widget:not(:last-child){margin-block-end:20px;}
+.elementor-element{--widgets-spacing:20px 20px;--widgets-spacing-row:20px;--widgets-spacing-column:20px;}
+@media (max-width:1024px){
+.elementor-section.elementor-section-boxed>.elementor-container{max-width:1024px;}
+}
+@media (max-width:767px){
+.elementor-section.elementor-section-boxed>.elementor-container{max-width:767px;}
+}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/ac17fbb7b1855467cb8543bc3061ea79.css?ver=1ea79 ; media=all */
+@media all{
+.elementor-widget-image{text-align:center;}
+.elementor-widget-image img{display:inline-block;vertical-align:middle;}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/b80d83b45709ca17f05022edf2bca51c.css?ver=ca51c ; media=all */
+@media all{
+.elementor-animation-shrink{transition-duration:.3s;transition-property:transform;}
+.elementor-animation-shrink:active,.elementor-animation-shrink:focus,.elementor-animation-shrink:hover{transform:scale(.9);}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/7e3d4e7bdcd3ce7777bbb06b2ac26bab.css?ver=26bab ; media=all */
+@media all{
+.elementor-widget-icon-box .elementor-icon-box-wrapper{display:block;text-align:center;}
+.elementor-widget-icon-box .elementor-icon-box-icon{margin-bottom:var(--icon-box-icon-margin,15px);margin-left:auto;margin-right:auto;}
+.elementor-widget-icon-box.elementor-position-top .elementor-icon-box-wrapper{display:block;flex-direction:unset;text-align:center;}
+.elementor-widget-icon-box.elementor-position-top .elementor-icon-box-icon{margin-bottom:var(--icon-box-icon-margin,15px);margin-left:auto;margin-right:auto;}
+@media (max-width:767px){
+.elementor-widget-icon-box.elementor-mobile-position-top .elementor-icon-box-wrapper{display:block;flex-direction:unset;text-align:center;}
+.elementor-widget-icon-box.elementor-mobile-position-top .elementor-icon-box-icon{margin-bottom:var(--icon-box-icon-margin,15px);margin-left:auto;margin-right:auto;}
+}
+.elementor-widget-icon-box .elementor-icon-box-content{flex-grow:1;}
+.elementor-widget-icon-box .elementor-icon-box-description{margin:0;}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/55ae974b9b1c6069bb7f6051dd2f45e5.css?ver=f45e5 ; media=all */
+@media all{
+.elementor-117 .elementor-element.elementor-element-6956a24b>.elementor-container>.elementor-column>.elementor-widget-wrap{align-content:center;align-items:center;}
+.elementor-117 .elementor-element.elementor-element-6956a24b>.elementor-container{min-height:90vh;}
+.elementor-117 .elementor-element.elementor-element-6956a24b{transition:background .3s,border .3s,border-radius .3s,box-shadow .3s;margin-top:-40px;margin-bottom:0;padding:0 3%;}
+.elementor-117 .elementor-element.elementor-element-5add6e97.elementor-column>.elementor-widget-wrap{justify-content:center;}
+.elementor-117 .elementor-element.elementor-element-5add6e97>.elementor-widget-wrap>.elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:15px;}
+.elementor-117 .elementor-element.elementor-element-5add6e97>.elementor-element-populated{padding:0 5% 0 0;}
+.elementor-widget-heading .elementor-heading-title{font-family:var(--e-global-typography-primary-font-family),Sans-serif;font-weight:var(--e-global-typography-primary-font-weight);color:var(--e-global-color-primary);}
+.elementor-117 .elementor-element.elementor-element-20d4cbc{text-align:right;}
+.elementor-117 .elementor-element.elementor-element-20d4cbc .elementor-heading-title{font-family:"Rubik",Sans-serif;font-size:65px;font-weight:600;text-transform:none;font-style:normal;text-decoration:none;line-height:1.2em;letter-spacing:0px;word-spacing:0em;color:#1c244b;}
+.elementor-widget-text-editor{color:var(--e-global-color-text);font-family:var(--e-global-typography-text-font-family),Sans-serif;font-weight:var(--e-global-typography-text-font-weight);}
+.elementor-117 .elementor-element.elementor-element-1b4125f3>.elementor-widget-container{margin:5% 0 0;}
+.elementor-117 .elementor-element.elementor-element-1b4125f3{text-align:right;color:#324a6d;font-family:"Poppins",Sans-serif;font-size:22px;font-weight:300;text-transform:none;font-style:normal;text-decoration:none;line-height:1.5em;letter-spacing:0px;word-spacing:0em;}
+.elementor-widget-button .elementor-button{background-color:var(--e-global-color-accent);font-family:var(--e-global-typography-accent-font-family),Sans-serif;font-weight:var(--e-global-typography-accent-font-weight);}
+.elementor-117 .elementor-element.elementor-element-1820f89e .elementor-button{background-color:#467ff7;font-family:"Poppins",Sans-serif;font-size:16px;font-weight:400;text-transform:capitalize;font-style:normal;text-decoration:none;line-height:1em;letter-spacing:0px;word-spacing:0em;fill:#fff;color:#fff;border-style:solid;border-width:1px;border-color:#467ff7;border-radius:100px;padding:16px 55px;}
+.elementor-117 .elementor-element.elementor-element-1820f89e .elementor-button:hover,.elementor-117 .elementor-element.elementor-element-1820f89e .elementor-button:focus{background-color:#02010100;color:#467ff7;}
+.elementor-117 .elementor-element.elementor-element-56698928 img{width:100%;height:395px;border-radius:15px;}
+.elementor-117 .elementor-element.elementor-element-2e546a7b>.elementor-widget-wrap>.elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:15px;}
+.elementor-117 .elementor-element.elementor-element-2e546a7b>.elementor-element-populated{padding:0 0 0 10%;}
+.elementor-117 .elementor-element.elementor-element-6d921ce9>.elementor-widget-container{padding:0 5px 0 0;}
+.elementor-117 .elementor-element.elementor-element-6d921ce9{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-6d921ce9 .elementor-heading-title{font-family:"Rubik",Sans-serif;font-size:65px;font-weight:600;text-transform:none;font-style:normal;text-decoration:none;line-height:1.2em;letter-spacing:0px;word-spacing:0em;color:#1c244b;}
+.elementor-117 .elementor-element.elementor-element-543069ed{width:var(--container-widget-width,108.348%);max-width:108.348%;--container-widget-width:108.348%;--container-widget-flex-grow:0;text-align:center;color:#324a6d;font-family:"Poppins",Sans-serif;font-size:16px;font-weight:300;text-transform:none;font-style:normal;text-decoration:none;line-height:1.5em;letter-spacing:0px;word-spacing:0em;}
+.elementor-117 .elementor-element.elementor-element-543069ed>.elementor-widget-container{margin:5% 0 0;padding:0 5% 0 0;}
+.elementor-117 .elementor-element.elementor-element-59f8a7be:not(.elementor-motion-effects-element-type-background){background-color:#f3f5f8;}
+.elementor-117 .elementor-element.elementor-element-59f8a7be .elementor-column-gap-custom .elementor-column>.elementor-element-populated{padding:15%;}
+.elementor-117 .elementor-element.elementor-element-59f8a7be{transition:background .3s,border .3s,border-radius .3s,box-shadow .3s;margin-top:1%;margin-bottom:0;padding:4% 3%;}
+.elementor-widget-icon-box.elementor-view-stacked .elementor-icon{background-color:var(--e-global-color-primary);}
+.elementor-widget-icon-box .elementor-icon-box-title{color:var(--e-global-color-primary);}
+.elementor-widget-icon-box .elementor-icon-box-title{font-family:var(--e-global-typography-primary-font-family),Sans-serif;font-weight:var(--e-global-typography-primary-font-weight);}
+.elementor-widget-icon-box .elementor-icon-box-description{color:var(--e-global-color-text);font-family:var(--e-global-typography-text-font-family),Sans-serif;font-weight:var(--e-global-typography-text-font-weight);}
+.elementor-117 .elementor-element.elementor-element-1ab9dae4 .elementor-icon-box-wrapper{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-1ab9dae4{--icon-box-icon-margin:20px;}
+.elementor-117 .elementor-element.elementor-element-1ab9dae4 .elementor-icon-box-title{margin-bottom:10px;color:#1c244b;}
+.elementor-117 .elementor-element.elementor-element-1ab9dae4.elementor-view-stacked .elementor-icon{background-color:#fff;fill:#c8d5dc;color:#c8d5dc;}
+.elementor-117 .elementor-element.elementor-element-1ab9dae4 .elementor-icon{font-size:45px;padding:20px;border-radius:12px;}
+.elementor-117 .elementor-element.elementor-element-1ab9dae4 .elementor-icon-box-title{font-family:"Poppins",Sans-serif;font-size:22px;font-weight:600;text-transform:capitalize;font-style:normal;text-decoration:none;line-height:1.2em;letter-spacing:0px;word-spacing:0em;}
+.elementor-117 .elementor-element.elementor-element-1ab9dae4 .elementor-icon-box-description{color:#324a6d;font-family:"Poppins",Sans-serif;font-size:16px;font-weight:300;text-transform:none;font-style:normal;text-decoration:none;line-height:1.5em;letter-spacing:0px;word-spacing:0em;}
+.elementor-117 .elementor-element.elementor-element-60275d31>.elementor-widget-wrap>.elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:0;}
+.elementor-117 .elementor-element.elementor-element-623613f>.elementor-widget-container{margin:-50px 0 0;}
+.elementor-117 .elementor-element.elementor-element-623613f{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-80b1054 .elementor-icon-box-wrapper{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-80b1054{--icon-box-icon-margin:20px;}
+.elementor-117 .elementor-element.elementor-element-80b1054 .elementor-icon-box-title{margin-bottom:10px;color:#1c244b;}
+.elementor-117 .elementor-element.elementor-element-80b1054.elementor-view-stacked .elementor-icon{background-color:#fff;fill:#c8d5dc;color:#c8d5dc;}
+.elementor-117 .elementor-element.elementor-element-80b1054 .elementor-icon{font-size:45px;padding:20px;border-radius:12px;}
+.elementor-117 .elementor-element.elementor-element-80b1054 .elementor-icon-box-title{font-family:"Poppins",Sans-serif;font-size:22px;font-weight:600;text-transform:capitalize;font-style:normal;text-decoration:none;line-height:1.2em;letter-spacing:0px;word-spacing:0em;}
+.elementor-117 .elementor-element.elementor-element-80b1054 .elementor-icon-box-description{color:#324a6d;font-family:"Poppins",Sans-serif;font-size:16px;font-weight:300;text-transform:none;font-style:normal;text-decoration:none;line-height:1.5em;letter-spacing:0px;word-spacing:0em;}
+.elementor-117 .elementor-element.elementor-element-7879c404 .elementor-icon-box-wrapper{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-7879c404{--icon-box-icon-margin:20px;}
+.elementor-117 .elementor-element.elementor-element-7879c404 .elementor-icon-box-title{margin-bottom:10px;color:#1c244b;}
+.elementor-117 .elementor-element.elementor-element-7879c404.elementor-view-stacked .elementor-icon{background-color:#fff;fill:#c8d5dc;color:#c8d5dc;}
+.elementor-117 .elementor-element.elementor-element-7879c404 .elementor-icon{font-size:45px;padding:20px;border-radius:12px;}
+.elementor-117 .elementor-element.elementor-element-7879c404 .elementor-icon-box-title{font-family:"Poppins",Sans-serif;font-size:22px;font-weight:600;text-transform:capitalize;font-style:normal;text-decoration:none;line-height:1.2em;letter-spacing:0px;word-spacing:0em;}
+.elementor-117 .elementor-element.elementor-element-7879c404 .elementor-icon-box-description{color:#324a6d;font-family:"Poppins",Sans-serif;font-size:16px;font-weight:300;text-transform:none;font-style:normal;text-decoration:none;line-height:1.5em;letter-spacing:0px;word-spacing:0em;}
+.elementor-117 .elementor-element.elementor-element-36cb3cc6>.elementor-container>.elementor-column>.elementor-widget-wrap{align-content:center;align-items:center;}
+.elementor-117 .elementor-element.elementor-element-36cb3cc6{margin-top:5%;margin-bottom:0;padding:0 3% 0 0;}
+.elementor-117 .elementor-element.elementor-element-4c89f0c>.elementor-widget-wrap>.elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:15px;}
+.elementor-117 .elementor-element.elementor-element-4c89f0c>.elementor-element-populated{padding:0 25% 0 3%;}
+.elementor-117 .elementor-element.elementor-element-2fbbf34b{text-align:right;}
+.elementor-117 .elementor-element.elementor-element-2fbbf34b .elementor-heading-title{font-family:"Poppins",Sans-serif;font-size:65px;font-weight:600;text-transform:none;font-style:normal;text-decoration:none;line-height:1.2em;letter-spacing:0px;word-spacing:0em;color:#1c244b;}
+.elementor-117 .elementor-element.elementor-element-4addee8f>.elementor-widget-container{margin:3%;padding:0;}
+.elementor-117 .elementor-element.elementor-element-4addee8f{text-align:right;color:#324a6d;font-family:"Poppins",Sans-serif;font-size:16px;font-weight:300;text-transform:none;font-style:normal;text-decoration:none;line-height:1.5em;letter-spacing:0px;word-spacing:0em;}
+.elementor-117 .elementor-element.elementor-element-12c80a7a>.elementor-container>.elementor-column>.elementor-widget-wrap{align-content:center;align-items:center;}
+.elementor-117 .elementor-element.elementor-element-12c80a7a>.elementor-container{max-width:750px;}
+.elementor-117 .elementor-element.elementor-element-12c80a7a{margin-top:6%;margin-bottom:0;padding:0 3%;}
+.elementor-117 .elementor-element.elementor-element-635bb178>.elementor-widget-wrap>.elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:20px;}
+.elementor-117 .elementor-element.elementor-element-4fafbf1>.elementor-widget-container{margin:-10px;}
+.elementor-117 .elementor-element.elementor-element-4fafbf1{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-4fafbf1 .elementor-heading-title{font-family:"Poppins",Sans-serif;font-size:65px;font-weight:600;text-transform:none;font-style:normal;text-decoration:none;line-height:1.2em;letter-spacing:0px;word-spacing:0em;color:#1c244b;}
+.elementor-117 .elementor-element.elementor-element-56524da1>.elementor-widget-container{margin:18px -4px -16px;padding:0 20%;}
+.elementor-117 .elementor-element.elementor-element-56524da1{text-align:center;color:#324a6d;font-family:"Poppins",Sans-serif;font-size:16px;font-weight:300;text-transform:none;font-style:normal;text-decoration:none;line-height:1.5em;letter-spacing:0px;word-spacing:0em;}
+.elementor-117 .elementor-element.elementor-element-39703705 .elementor-button{background-color:#467ff7;font-family:"Poppins",Sans-serif;font-size:16px;font-weight:400;text-transform:capitalize;font-style:normal;text-decoration:none;line-height:1em;letter-spacing:0px;word-spacing:0em;fill:#fff;color:#fff;border-style:solid;border-width:1px;border-color:#467ff7;border-radius:100px;padding:16px 55px;}
+.elementor-117 .elementor-element.elementor-element-39703705 .elementor-button:hover,.elementor-117 .elementor-element.elementor-element-39703705 .elementor-button:focus{background-color:#02010100;color:#467ff7;}
+.elementor-117 .elementor-element.elementor-element-39703705>.elementor-widget-container{margin:2%;}
+.elementor-117 .elementor-element.elementor-element-2eecbe76>.elementor-container>.elementor-column>.elementor-widget-wrap{align-content:center;align-items:center;}
+.elementor-117 .elementor-element.elementor-element-2eecbe76{padding:100px 0;}
+.elementor-117 .elementor-element.elementor-element-55636fb1{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-55636fb1 .elementor-heading-title{font-size:55px;font-weight:600;color:#000;}
+.elementor-117 .elementor-element.elementor-element-144027ec>.elementor-widget-container{margin:8px 0 0;}
+.elementor-117 .elementor-element.elementor-element-144027ec{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-144027ec .elementor-heading-title{font-size:16px;font-weight:300;color:#bfbfbf;}
+.elementor-117 .elementor-element.elementor-element-2a9e2a8a>.elementor-container>.elementor-column>.elementor-widget-wrap{align-content:center;align-items:center;}
+.elementor-117 .elementor-element.elementor-element-2a9e2a8a{padding:25px 0 0;}
+.elementor-117 .elementor-element.elementor-element-6e98f65a img{max-width:45%;}
+.elementor-117 .elementor-element.elementor-element-7d0c46e img{max-width:45%;}
+.elementor-117 .elementor-element.elementor-element-6056dd94 img{max-width:45%;}
+.elementor-117 .elementor-element.elementor-element-459cec50 img{max-width:45%;}
+.elementor-117 .elementor-element.elementor-element-1e4654ae img{max-width:45%;}
+@media (max-width:1024px){
+.elementor-117 .elementor-element.elementor-element-6956a24b>.elementor-container{min-height:500px;}
+.elementor-117 .elementor-element.elementor-element-6956a24b{margin-top:5%;margin-bottom:0;padding:0 5%;}
+.elementor-117 .elementor-element.elementor-element-5add6e97>.elementor-element-populated{padding:0 35% 0 0;}
+.elementor-117 .elementor-element.elementor-element-20d4cbc .elementor-heading-title{font-size:42px;}
+.elementor-117 .elementor-element.elementor-element-1b4125f3{font-size:14px;}
+.elementor-117 .elementor-element.elementor-element-1820f89e .elementor-button{font-size:14px;}
+.elementor-117 .elementor-element.elementor-element-f56fb47>.elementor-element-populated{margin:10% 0 0;--e-column-margin-right:0%;--e-column-margin-left:0%;}
+.elementor-117 .elementor-element.elementor-element-2e546a7b>.elementor-element-populated{margin:0;--e-column-margin-right:0%;--e-column-margin-left:0%;padding:0 10% 0 0;}
+.elementor-117 .elementor-element.elementor-element-6d921ce9 .elementor-heading-title{font-size:45px;}
+.elementor-117 .elementor-element.elementor-element-543069ed>.elementor-widget-container{padding:0;}
+.elementor-117 .elementor-element.elementor-element-59f8a7be{margin-top:15%;margin-bottom:0;padding:4% 5%;}
+.elementor-117 .elementor-element.elementor-element-1ab9dae4 .elementor-icon-box-description{font-size:14px;}
+.elementor-117 .elementor-element.elementor-element-80b1054 .elementor-icon-box-description{font-size:14px;}
+.elementor-117 .elementor-element.elementor-element-7879c404 .elementor-icon-box-description{font-size:14px;}
+.elementor-117 .elementor-element.elementor-element-36cb3cc6{margin-top:15%;margin-bottom:0;padding:0 5%;}
+.elementor-117 .elementor-element.elementor-element-4c89f0c>.elementor-element-populated{margin:0 0 10%;--e-column-margin-right:0%;--e-column-margin-left:0%;padding:0 15% 0 0;}
+.elementor-117 .elementor-element.elementor-element-2fbbf34b .elementor-heading-title{font-size:45px;}
+.elementor-117 .elementor-element.elementor-element-4addee8f>.elementor-widget-container{padding:0;}
+.elementor-117 .elementor-element.elementor-element-4addee8f{font-size:14px;}
+.elementor-117 .elementor-element.elementor-element-12c80a7a>.elementor-container{max-width:500px;}
+.elementor-117 .elementor-element.elementor-element-12c80a7a{margin-top:15%;margin-bottom:0;padding:0 5%;}
+.elementor-117 .elementor-element.elementor-element-4fafbf1 .elementor-heading-title{font-size:45px;}
+.elementor-117 .elementor-element.elementor-element-56524da1>.elementor-widget-container{padding:0 5%;}
+.elementor-117 .elementor-element.elementor-element-56524da1{font-size:14px;}
+.elementor-117 .elementor-element.elementor-element-39703705 .elementor-button{font-size:14px;}
+.elementor-117 .elementor-element.elementor-element-2eecbe76{padding:100px 25px;}
+.elementor-117 .elementor-element.elementor-element-55636fb1 .elementor-heading-title{font-size:45px;}
+.elementor-117 .elementor-element.elementor-element-6e98f65a img{max-width:70%;}
+.elementor-117 .elementor-element.elementor-element-7d0c46e img{max-width:70%;}
+.elementor-117 .elementor-element.elementor-element-6056dd94 img{max-width:70%;}
+.elementor-117 .elementor-element.elementor-element-459cec50 img{max-width:70%;}
+.elementor-117 .elementor-element.elementor-element-1e4654ae img{max-width:70%;}
+}
+@media (max-width:767px){
+.elementor-117 .elementor-element.elementor-element-6956a24b>.elementor-container{min-height:0vh;}
+.elementor-117 .elementor-element.elementor-element-6956a24b{margin-top:8%;margin-bottom:0;}
+.elementor-117 .elementor-element.elementor-element-5add6e97>.elementor-element-populated{padding:0;}
+.elementor-117 .elementor-element.elementor-element-20d4cbc{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-20d4cbc .elementor-heading-title{font-size:28px;line-height:1.1em;}
+.elementor-117 .elementor-element.elementor-element-1b4125f3{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-1820f89e .elementor-button{padding:15px 35px;}
+.elementor-117 .elementor-element.elementor-element-f56fb47>.elementor-element-populated{margin:20% 0 0;--e-column-margin-right:0%;--e-column-margin-left:0%;}
+.elementor-117 .elementor-element.elementor-element-2e546a7b>.elementor-element-populated{padding:0;}
+.elementor-117 .elementor-element.elementor-element-6d921ce9{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-6d921ce9 .elementor-heading-title{font-size:28px;line-height:1.1em;}
+.elementor-117 .elementor-element.elementor-element-543069ed>.elementor-widget-container{padding:0;}
+.elementor-117 .elementor-element.elementor-element-543069ed{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-59f8a7be .elementor-column-gap-custom .elementor-column>.elementor-element-populated{padding:0;}
+.elementor-117 .elementor-element.elementor-element-59f8a7be{margin-top:25%;margin-bottom:0;padding:15% 5%;}
+.elementor-117 .elementor-element.elementor-element-1ab9dae4 .elementor-icon-box-title{font-size:18px;}
+.elementor-117 .elementor-element.elementor-element-60275d31>.elementor-element-populated{margin:20% 0 0;--e-column-margin-right:0%;--e-column-margin-left:0%;}
+.elementor-117 .elementor-element.elementor-element-80b1054 .elementor-icon-box-title{font-size:18px;}
+.elementor-117 .elementor-element.elementor-element-b62907d>.elementor-element-populated{margin:20% 0 0;--e-column-margin-right:0%;--e-column-margin-left:0%;}
+.elementor-117 .elementor-element.elementor-element-7879c404 .elementor-icon-box-title{font-size:18px;}
+.elementor-117 .elementor-element.elementor-element-36cb3cc6{margin-top:25%;margin-bottom:0;}
+.elementor-117 .elementor-element.elementor-element-23620091{width:50%;}
+.elementor-117 .elementor-element.elementor-element-4c89f0c>.elementor-element-populated{margin:0 0 15%;--e-column-margin-right:0%;--e-column-margin-left:0%;padding:0;}
+.elementor-117 .elementor-element.elementor-element-2fbbf34b{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-2fbbf34b .elementor-heading-title{font-size:28px;line-height:1.1em;}
+.elementor-117 .elementor-element.elementor-element-4addee8f>.elementor-widget-container{padding:0;}
+.elementor-117 .elementor-element.elementor-element-4addee8f{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-12c80a7a{margin-top:25%;margin-bottom:0;}
+.elementor-117 .elementor-element.elementor-element-635bb178>.elementor-element-populated{padding:0;}
+.elementor-117 .elementor-element.elementor-element-4fafbf1{text-align:center;}
+.elementor-117 .elementor-element.elementor-element-4fafbf1 .elementor-heading-title{font-size:28px;line-height:1.1em;}
+.elementor-117 .elementor-element.elementor-element-56524da1>.elementor-widget-container{padding:0;}
+.elementor-117 .elementor-element.elementor-element-39703705 .elementor-button{padding:15px 35px;}
+.elementor-117 .elementor-element.elementor-element-2eecbe76{padding:50px 20px;}
+.elementor-117 .elementor-element.elementor-element-55636fb1 .elementor-heading-title{font-size:45px;}
+.elementor-117 .elementor-element.elementor-element-144027ec>.elementor-widget-container{margin:-10px 0 50px;}
+.elementor-117 .elementor-element.elementor-element-144027ec .elementor-heading-title{line-height:1.6em;}
+.elementor-117 .elementor-element.elementor-element-2a9e2a8a{padding:15px 0 0;}
+.elementor-117 .elementor-element.elementor-element-6e98f65a img{max-width:45%;}
+.elementor-117 .elementor-element.elementor-element-4273e846>.elementor-element-populated{padding:25px 0 0;}
+.elementor-117 .elementor-element.elementor-element-7d0c46e img{max-width:45%;}
+.elementor-117 .elementor-element.elementor-element-7a92a475>.elementor-element-populated{padding:25px 0 0;}
+.elementor-117 .elementor-element.elementor-element-6056dd94 img{max-width:45%;}
+.elementor-117 .elementor-element.elementor-element-459cec50>.elementor-widget-container{padding:25px 0 0;}
+.elementor-117 .elementor-element.elementor-element-459cec50 img{max-width:45%;}
+.elementor-117 .elementor-element.elementor-element-6dc8e7fd>.elementor-element-populated{padding:25px 0 0;}
+.elementor-117 .elementor-element.elementor-element-1e4654ae img{max-width:45%;}
+}
+@media (min-width:768px){
+.elementor-117 .elementor-element.elementor-element-5add6e97{width:50.561%;}
+.elementor-117 .elementor-element.elementor-element-f56fb47{width:49.439%;}
+}
+@media (max-width:1024px) and (min-width:768px){
+.elementor-117 .elementor-element.elementor-element-5add6e97{width:100%;}
+.elementor-117 .elementor-element.elementor-element-f56fb47{width:100%;}
+.elementor-117 .elementor-element.elementor-element-2e546a7b{width:100%;}
+.elementor-117 .elementor-element.elementor-element-795c31fa{width:50%;}
+.elementor-117 .elementor-element.elementor-element-60275d31{width:50%;}
+.elementor-117 .elementor-element.elementor-element-b62907d{width:50%;}
+.elementor-117 .elementor-element.elementor-element-23620091{width:50%;}
+.elementor-117 .elementor-element.elementor-element-4c89f0c{width:100%;}
+.elementor-117 .elementor-element.elementor-element-635bb178{width:100%;}
+}
+}
+/*! CSS Used from: https://doctorpluus.com/wp-content/litespeed/css/ea1b56bb73c5cdfbd1c6e31699e05f7b.css?ver=05f7b ; media=all */
+@media all{
+main,section{display:block;}
+a{background-color:transparent;}
+a:active,a:hover{outline:0;}
+img{border:0;}
+svg:not(:root){overflow:hidden;}
+}
+/*! CSS Used from: Embedded */
+*{box-sizing:border-box;margin:0;padding:0;direction:rtl;}
+body h1{color:#389ae1;}
+h1,h2{margin-top:20px;margin-bottom:20px;text-align:right;}
+p{margin-top:10px;margin-bottom:10px;text-align:right;}
+@media (max-width: 300px){
+h1,h2{margin-top:15px;margin-bottom:15px;}
+p{margin-top:8px;margin-bottom:8px;}
+}
+
+
+</style>
+
+
+
+
+
+<main id="dc-main" class="dc-main dc-haslayout"><div data-elementor-type="wp-post" data-elementor-id="117" class="elementor elementor-117" data-elementor-post-type="page"><section class="elementor-section elementor-top-section elementor-element elementor-element-6956a24b elementor-section-height-min-height elementor-section-items-stretch elementor-section-content-middle elementor-section-full_width elementor-section-height-default" data-id="6956a24b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="elementor-container elementor-column-gap-no"><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5add6e97" data-id="5add6e97" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-20d4cbc elementor-widget elementor-widget-heading" data-id="20d4cbc" data-element_type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h1 class="elementor-heading-title elementor-size-default">من نحن</h1></div></div><div class="elementor-element elementor-element-1b4125f3 elementor-widget elementor-widget-text-editor" data-id="1b4125f3" data-element_type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container"><p><span style="font-weight: 400;">دكتور بلس هي خلاصة سنوات من الخبرة والعمل في مجال زراعة الشعر. ونحن هنا لمساعدتك في اتخاذ القرار الصحيح بثقة وراحة. حتى الآن، استفاد ما يقرب من 500 شخص من خدماتنا، حيث قاموا بزراعة الشعر واستعادوا شبابهم وحيوية شعرهم بكثافة وطبيعية مع أمهر الأطباء في مصر. نحن هنا لنساعدك في تحقيق نفس النتائج بعيداً عن الترشيحات المزيفة والإعلانات الترويجية.</span></p></div></div><div class="elementor-element elementor-element-1820f89e elementor-mobile-align-center elementor-align-right elementor-widget elementor-widget-button" data-id="1820f89e" data-element_type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper">
+<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">تواصل معنا </span>
+</span>
+</a></div></div></div></div></div><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-f56fb47" data-id="f56fb47" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-56698928 elementor-widget elementor-widget-image" data-id="56698928" data-element_type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
+<img fetchpriority="high" decoding="async" width="640" height="427" src="http://localhost/doctorpluus/wp-content/uploads/2025/01/surgery-1822458_1280-1-768x512-1.jpg" class="attachment-large size-large wp-image-1627" alt="" ></div></div></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-68334dc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="68334dc" data-element_type="section"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-dc71329" data-id="dc71329" data-element_type="column"><div class="elementor-widget-wrap"></div></div><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2e546a7b" data-id="2e546a7b" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-6d921ce9 elementor-widget elementor-widget-heading" data-id="6d921ce9" data-element_type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h3 class="elementor-heading-title elementor-size-default">رؤيتنا</h3></div></div><div class="elementor-element elementor-element-543069ed elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="543069ed" data-element_type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container"><p><span style="font-weight: 400;">نحن في دكتور بلس نطمح للوصول إلى أكبر عدد من الأشخاص الذين يحتاجون إلى زراعة شعر في مصر أو يسعون لعلاج الصلع بشكل فعال بناءً على تجارب واقعية. رؤيتنا هي تقديم الحلول المثلى لك، لنساعدك في استعادة ثقتك بنفسك.</span></p></div></div></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-59f8a7be elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="59f8a7be" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="elementor-container elementor-column-gap-custom"><div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-795c31fa" data-id="795c31fa" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-1ab9dae4 elementor-view-stacked elementor-shape-circle elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="1ab9dae4" data-element_type="widget" data-widget_type="icon-box.default"><div class="elementor-widget-container"><div class="elementor-icon-box-wrapper"><div class="elementor-icon-box-icon">
+<span class="elementor-icon elementor-animation-shrink">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-pump-medical" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M235.51,159.82H84.24A64,64,0,0,0,20.51,218L.14,442a64,64,0,0,0,63.74,69.8h192A64,64,0,0,0,319.61,442L299.24,218A64,64,0,0,0,235.51,159.82Zm4.37,173.33a13.35,13.35,0,0,1-13.34,13.34h-40v40a13.33,13.33,0,0,1-13.33,13.33H146.54a13.33,13.33,0,0,1-13.33-13.33v-40h-40a13.34,13.34,0,0,1-13.33-13.34V306.49a13.33,13.33,0,0,1,13.33-13.34h40v-40a13.33,13.33,0,0,1,13.33-13.33h26.67a13.33,13.33,0,0,1,13.33,13.33v40h40a13.34,13.34,0,0,1,13.34,13.34ZM379.19,93.88,335.87,50.56a64,64,0,0,0-45.24-18.74H223.88a32,32,0,0,0-32-32h-64a32,32,0,0,0-32,32v96h128v-32h66.75l43.31,43.31a16,16,0,0,0,22.63,0l22.62-22.62A16,16,0,0,0,379.19,93.88Z"></path></svg>				</span></div><div class="elementor-icon-box-content"><h4 class="elementor-icon-box-title">
+<span>
+ترشيحات موثوقة						</span></h4><p class="elementor-icon-box-description">
+في دكتور بلس، نقدم ترشيحات دقيقة وموثوقة لأفضل أطباء ومراكز زراعة الشعر في مصر، معتمدين على تجارب واقعية وآراء موثوقة للمرضى.</p></div></div></div></div></div></div><div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-60275d31" data-id="60275d31" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-623613f elementor-widget elementor-widget-heading" data-id="623613f" data-element_type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h2 class="elementor-heading-title elementor-size-default">لماذا تثق في دكتور بلس؟</h2></div></div><div class="elementor-element elementor-element-80b1054 elementor-view-stacked elementor-shape-square elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="80b1054" data-element_type="widget" data-widget_type="icon-box.default"><div class="elementor-widget-container"><div class="elementor-icon-box-wrapper"><div class="elementor-icon-box-icon">
+<span class="elementor-icon elementor-animation-shrink">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-briefcase-medical" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 128h-80V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48zM192 96h128v32H192V96zm160 248c0 4.4-3.6 8-8 8h-56v56c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-56h-56c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h56v-56c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v56h56c4.4 0 8 3.6 8 8v48z"></path></svg>				</span></div><div class="elementor-icon-box-content"><h4 class="elementor-icon-box-title">
+<span>
+معلومات دقيقة وشفافة						</span></h4><p class="elementor-icon-box-description">
+نعتمد على تقديم المعلومات الأكثر دقة وشفافية، بعيداً عن أي ترويج شخصي أو مصالح خاصة، لضمان أن تكونوا على دراية كاملة بكل الخيارات المتاحة أمامكم.</p></div></div></div></div></div></div><div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-b62907d" data-id="b62907d" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-7879c404 elementor-view-stacked elementor-shape-square elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="7879c404" data-element_type="widget" data-widget_type="icon-box.default"><div class="elementor-widget-container"><div class="elementor-icon-box-wrapper"><div class="elementor-icon-box-icon">
+<span class="elementor-icon elementor-animation-shrink">
+<svg aria-hidden="true" class="e-font-icon-svg e-fas-hand-holding-medical" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M159.88,175.82h64v64a16,16,0,0,0,16,16h64a16,16,0,0,0,16-16v-64h64a16,16,0,0,0,16-16v-64a16,16,0,0,0-16-16h-64v-64a16,16,0,0,0-16-16h-64a16,16,0,0,0-16,16v64h-64a16,16,0,0,0-16,16v64A16,16,0,0,0,159.88,175.82ZM568.07,336.13a39.91,39.91,0,0,0-55.93-8.47L392.47,415.84H271.86a16,16,0,0,1,0-32H350.1c16,0,30.75-10.87,33.37-26.61a32.06,32.06,0,0,0-31.62-37.38h-160a117.7,117.7,0,0,0-74.12,26.25l-46.5,37.74H15.87a16.11,16.11,0,0,0-16,16v96a16.11,16.11,0,0,0,16,16h347a104.8,104.8,0,0,0,61.7-20.27L559.6,392A40,40,0,0,0,568.07,336.13Z"></path></svg>				</span></div><div class="elementor-icon-box-content"><h4 class="elementor-icon-box-title">
+<span>
+تجارب واقعية 						</span></h4><p class="elementor-icon-box-description">
+نعتمد في توصياتنا على تجارب حقيقية وآراء مرضى سابقين، لضمان تقديم النصائح والحلول المبنية على وقائع حقيقية.</p></div></div></div></div></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-36cb3cc6 elementor-section-full_width elementor-section-content-middle elementor-reverse-tablet elementor-reverse-mobile elementor-section-height-default elementor-section-height-default" data-id="36cb3cc6" data-element_type="section"><div class="elementor-container elementor-column-gap-no"><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-23620091" data-id="23620091" data-element_type="column"><div class="elementor-widget-wrap"></div></div><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4c89f0c" data-id="4c89f0c" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-2fbbf34b elementor-widget elementor-widget-heading" data-id="2fbbf34b" data-element_type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h3 class="elementor-heading-title elementor-size-default">قيمنا</h3></div></div><div class="elementor-element elementor-element-4addee8f elementor-widget elementor-widget-text-editor" data-id="4addee8f" data-element_type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container"><p><span style="font-weight: 400;">نحن نعمل بجد لاختيار وترشيح أفضل الأطباء بكل مصداقية وأمانة، لضمان أن تحصل على أفضل الخدمات بعيداً عن الترويج الزائف الذي قد يسبب لك ضرراً أو مشكلات في المستقبل. هدفنا هو توفير معلومات دقيقة وموثوقة لتكون قراراتك مستنيرة ومبنية على تجارب سنين.</span></p></div></div></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-12c80a7a elementor-section-content-middle elementor-reverse-tablet elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="12c80a7a" data-element_type="section"><div class="elementor-container elementor-column-gap-no"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-635bb178" data-id="635bb178" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-4fafbf1 elementor-widget elementor-widget-heading" data-id="4fafbf1" data-element_type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h3 class="elementor-heading-title elementor-size-default">رسالتنا</h3></div></div><div class="elementor-element elementor-element-56524da1 elementor-widget elementor-widget-text-editor" data-id="56524da1" data-element_type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container"><div class="mt-1 flex gap-3 empty:hidden juice:-ml-3"><div class="items-center justify-start rounded-xl p-1 flex"><div class="flex items-center"><div class="flex items-center pb-0.5 juice:pb-0"><div class="[&amp;_svg]:h-full [&amp;_svg]:w-full icon-md h-4 w-4"><p><span style="font-weight: 400;">رسالتنا هي أن نجعل مجال زراعة الشعر في مصر أكثر ازدهاراً ونصل به إلى أقصى درجات التميز. نعدك بتقديم أفضل الترشيحات وأدق المعلومات، مع التركيز على الجودة والمصداقية. نحن هنا لدعمك في كل خطوة على الطريق نحو شعر أكثر كثافة وصحة.</span></p></div></div></div></div></div></div></div><div class="elementor-element elementor-element-39703705 elementor-align-center elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="39703705" data-element_type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper">
+<a class="elementor-button elementor-button-link elementor-size-sm" href="{{fn('CPT_Redirect_link','doctors').link }}">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">انضم لدكتور +</span>
+</span>
+</a></div></div></div></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-2eecbe76 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2eecbe76" data-element_type="section"><div class="elementor-container elementor-column-gap-no"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2b4e358a" data-id="2b4e358a" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-55636fb1 elementor-widget elementor-widget-heading" data-id="55636fb1" data-element_type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h4 class="elementor-heading-title elementor-size-default">شركاء النجاح</h4></div></div><div class="elementor-element elementor-element-144027ec elementor-widget elementor-widget-heading" data-id="144027ec" data-element_type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h5 class="elementor-heading-title elementor-size-default">شركاء نجاح نفتخر بهم</h5></div></div><section class="elementor-section elementor-inner-section elementor-element elementor-element-2a9e2a8a elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2a9e2a8a" data-element_type="section"><div class="elementor-container elementor-column-gap-no"><div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5915ad79" data-id="5915ad79" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-6e98f65a elementor-widget elementor-widget-image" data-id="6e98f65a" data-element_type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
+<img decoding="async" width="200" height="150" src="http://localhost/doctorpluus/wp-content/uploads/2025/01/armond.jpg" class="attachment-large size-large wp-image-1771" alt=""></div></div></div></div><div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4273e846" data-id="4273e846" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-7d0c46e elementor-widget elementor-widget-image" data-id="7d0c46e" data-element_type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
+<img decoding="async" width="200" height="150" src="http://localhost/doctorpluus/wp-content/uploads/2025/01/darkside.png" class="attachment-large size-large wp-image-1772" alt="" ></div></div></div></div><div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-7a92a475" data-id="7a92a475" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-6056dd94 elementor-widget elementor-widget-image" data-id="6056dd94" data-element_type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
+<img loading="lazy" decoding="async" width="200" height="150" src="http://localhost/doctorpluus/wp-content/uploads/2025/01/bastil.jpg" class="attachment-large size-large wp-image-1773" alt="" ></div></div></div></div><div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-68d3894f" data-id="68d3894f" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-459cec50 elementor-widget elementor-widget-image" data-id="459cec50" data-element_type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
+<img loading="lazy" decoding="async" width="200" height="150" src="http://localhost/doctorpluus/wp-content/uploads/2025/01/bolier.png" class="attachment-large size-large wp-image-1774" alt=""></div></div></div></div><div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-6dc8e7fd" data-id="6dc8e7fd" data-element_type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-1e4654ae elementor-widget elementor-widget-image" data-id="1e4654ae" data-element_type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
+<img loading="lazy" decoding="async" width="200" height="150" src="http://localhost/doctorpluus/wp-content/uploads/2025/01/digit.png" class="attachment-large size-large wp-image-1775" alt="" ></div></div></div></div></div></section></div></div></div></section></div></main>
+
+
+
+{% endblock %}
