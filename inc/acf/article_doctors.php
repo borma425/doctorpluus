@@ -12,7 +12,7 @@ function iwant_add_location_meta_box() {
         'iwant_location_meta_box', // Meta box ID
         'Location Address',        // Meta box title
         'iwant_location_meta_box_callback', // Callback function
-        'article_doctors',         // Replace with your CPT slug
+        'doctors-loc',         // Replace with your CPT slug
         'normal',                  // Context (normal, side, advanced)
         'high'                     // Priority (high, core, default, low)
     );
@@ -56,7 +56,7 @@ function iwant_get_all_location_addresses() {
             "SELECT DISTINCT meta_value FROM $wpdb->postmeta
             WHERE meta_key = '_iwant_location_address'
             AND post_id IN (SELECT ID FROM $wpdb->posts WHERE post_type = %s)",
-            'article_doctors' // Replace with your CPT slug
+            'doctors-loc' // Replace with your CPT slug
         )
     );
 

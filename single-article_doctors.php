@@ -15,4 +15,4 @@ $args = array(
 
 $context['posts'] = Timber::get_posts($args);
 
-Timber::render('content/single-article_doctors.twig', $context);
+Timber::render('content/single-doctors-loc.twig', $context);

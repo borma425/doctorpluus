@@ -28,7 +28,7 @@ function custom_admin_menu_script() {
             const menuReplacements = {
                 "Doctors": "الأطباء",
                 "orders": "الحجوزات",
-                "article_doctors": "أقسام بلعنوان",
+                "doctors-loc": "أقسام بلعنوان",
                 // Add more replacements as needed
             };
             document.querySelectorAll("#adminmenu li a .wp-menu-name").forEach(el => {

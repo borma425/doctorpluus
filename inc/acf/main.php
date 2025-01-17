@@ -13,14 +13,14 @@ function remove_tags_meta_box_banner() {
     
     
         function remove_tags_meta_unit1() {
-            $cpt_id = ['doctors','orders','article_doctors'];
+            $cpt_id = ['doctors','orders','doctors-loc'];
         
             foreach ($cpt_id as $post_type) {
-                if($post_type == 'doctors' OR $post_type == 'article_doctors'){
+                if($post_type == 'doctors' OR $post_type == 'doctors-loc'){
                     remove_meta_box('postcustom', $post_type, 'normal');
                     remove_post_type_support($post_type, 'editor');
                 }
-                if($post_type == 'orders' OR $post_type == 'article_doctors'){
+                if($post_type == 'orders' OR $post_type == 'doctors-loc'){
                     remove_meta_box('postexcerpt', $post_type, 'normal');
                     remove_meta_box('postcustom', $post_type, 'normal');
                 
