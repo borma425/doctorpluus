@@ -2,15 +2,6 @@
 // Add Metaboxes for Doctor Details
 function add_doctor_metaboxes() {
     add_meta_box(
-        'doctor_photo_metabox',         // Metabox ID
-        'Doctor Photo',                 // Metabox Title
-        'render_doctor_photo_metabox',  // Callback function to render the metabox
-        'doctors',                      // Custom Post Type (replace 'doctors' with your CPT slug)
-        'normal',                       // Context (normal, side, advanced)
-        'default'                       // Priority (default, high, low)
-    );
-
-    add_meta_box(
         'doctor_details_metabox',       // Metabox ID
         'Doctor Details',               // Metabox Title
         'render_doctor_details_metabox', // Callback function to render the metabox
@@ -30,50 +21,7 @@ function add_doctor_metaboxes() {
 }
 add_action('add_meta_boxes', 'add_doctor_metaboxes');
 
-// Render Doctor Photo Metabox (unchanged)
-function render_doctor_photo_metabox($post) {
-    // Retrieve existing photo URL
-    $doctor_photo = get_post_meta($post->ID, 'doctor_photo', true);
-
-    // Nonce field for security
-    wp_nonce_field('doctor_photo_nonce', 'doctor_photo_nonce');
-
-    // HTML for the metabox
-    echo '<label for="doctor_photo">Upload Doctor Photo:</label>';
-    echo '<input type="text" id="doctor_photo" name="doctor_photo" value="' . esc_url($doctor_photo) . '" style="width: 70%;">';
-    echo '<input type="button" id="upload_photo_button" class="button" value="Upload Photo">';
-    echo '<p class="description">Upload a photo for the doctor.</p>';
-
-    // Display the photo preview
-    if ($doctor_photo) {
-        echo '<div style="margin-top: 10px;"><img src="' . esc_url($doctor_photo) . '" style="max-width: 200px; height: auto;"></div>';
-    }
-
-    // Enqueue WordPress media uploader script
-    wp_enqueue_media();
-    ?>
-    <script>
-        jQuery(document).ready(function($) {
-            $('#upload_photo_button').click(function() {
-                var file_frame = wp.media({
-                    title: 'Select or Upload Doctor Photo',
-                    button: { text: 'Use this photo' },
-                    multiple: false
-                });
-
-                file_frame.on('select', function() {
-                    var attachment = file_frame.state().get('selection').first().toJSON();
-                    $('#doctor_photo').val(attachment.url);
-                });
-
-                file_frame.open();
-            });
-        });
-    </script>
-    <?php
-}
-
-// Render Doctor Details Metabox (unchanged)
+// Render Doctor Details Metabox
 function render_doctor_details_metabox($post) {
     // Retrieve existing values from the database
     $ratings_stars = get_post_meta($post->ID, 'ratings_stars', true);
@@ -82,6 +30,7 @@ function render_doctor_details_metabox($post) {
     $waiting_time = get_post_meta($post->ID, 'waiting_time', true);
     $phone_number = get_post_meta($post->ID, 'phone_number', true);
     $gender = get_post_meta($post->ID, 'gender', true); // Gender field
+    $job_title = get_post_meta($post->ID, 'job_title', true); // Job title field
 
     // Nonce field for security
     wp_nonce_field('doctor_details_nonce', 'doctor_details_nonce');
@@ -101,6 +50,10 @@ function render_doctor_details_metabox($post) {
 
     echo '<label for="phone_number">Phone Number:</label>';
     echo '<input type="text" id="phone_number" name="phone_number" value="' . esc_attr($phone_number) . '" style="width: 100%; margin-bottom: 10px;">';
+
+    // Job Title Field
+    echo '<label for="job_title">Job Title:</label>';
+    echo '<input type="text" id="job_title" name="job_title" value="' . esc_attr($job_title) . '" style="width: 100%; margin-bottom: 10px;">';
 
     // Gender Radio Buttons
     echo '<label>Gender:</label><br>';
@@ -131,11 +84,6 @@ function render_booking_dates_metabox($post) {
 
 // Save Metabox Data (updated for single date)
 function save_doctor_metaboxes($post_id) {
-    // Check nonce for Doctor Photo
-    if (!isset($_POST['doctor_photo_nonce']) || !wp_verify_nonce($_POST['doctor_photo_nonce'], 'doctor_photo_nonce')) {
-        return;
-    }
-
     // Check nonce for Doctor Details
     if (!isset($_POST['doctor_details_nonce']) || !wp_verify_nonce($_POST['doctor_details_nonce'], 'doctor_details_nonce')) {
         return;
@@ -144,11 +92,6 @@ function save_doctor_metaboxes($post_id) {
     // Check nonce for Booking Dates
     if (!isset($_POST['booking_dates_nonce']) || !wp_verify_nonce($_POST['booking_dates_nonce'], 'booking_dates_nonce')) {
         return;
-    }
-
-    // Save Doctor Photo
-    if (isset($_POST['doctor_photo'])) {
-        update_post_meta($post_id, 'doctor_photo', esc_url_raw($_POST['doctor_photo']));
     }
 
     // Save Doctor Details
@@ -166,6 +109,11 @@ function save_doctor_metaboxes($post_id) {
     }
     if (isset($_POST['phone_number'])) {
         update_post_meta($post_id, 'phone_number', sanitize_text_field($_POST['phone_number']));
+    }
+
+    // Save Job Title
+    if (isset($_POST['job_title'])) {
+        update_post_meta($post_id, 'job_title', sanitize_text_field($_POST['job_title']));
     }
 
     // Save Gender

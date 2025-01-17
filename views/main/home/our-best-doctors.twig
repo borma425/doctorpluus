@@ -10,7 +10,7 @@
                         {% for doctor in best_doctors %}
                     <a href="{{ doctor.link }}" class="col-md-3 col-6 text-decoration-none">
                         <div class="card shadow-lg">
-                            <img src="{{ doctor.meta('doctor_photo')|resize(350,350) }}" class="card-img-top" alt="doctor">
+                            <img src="{{ doctor.thumbnail.src|resize(350,350) }}" class="card-img-top" alt="doctor">
                             <div class="card-body">
                                 <h5 class="card-title">د/{{ doctor.title }} <i
                                         class="fa-regular fa-circle-check main-color"></i></h5>
