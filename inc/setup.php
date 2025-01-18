@@ -53,8 +53,15 @@ add_filter( 'timber/context', function( $context ) {
   $context['current_cpt_type']   =  $CPT["type"];
 
 
-    $context['current_url'] = Timber\URLHelper::get_current_url();
+    $current_url = Timber\URLHelper::get_current_url();
 
+    if ($paged > 1){
+      $context['current_url'] = preg_replace('/\/page\/[0-9]+\//', '/', $current_url);
+
+    }else{
+      $context['current_url'] = $current_url;
+
+    }
 
 
 

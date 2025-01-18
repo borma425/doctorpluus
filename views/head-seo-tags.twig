@@ -5,7 +5,8 @@
 {% set PostDescription = post.excerpt.length(50).read_more(false) %}
 {% set thumbnail =
 fn('is_home') or
-fn('is_front_page') ? fn('asset_url',"thumnail-1200x630.jpeg","/img/default/") :
+fn('is_front_page') ? fn('asset_url',"home.png","/img/default/") :
+fn('is_post_type_archive','doctors') or fn('is_singular','doctors-loc') ?  fn('asset_url',"doctors.png","/img/default/") :
 post.thumbnail.src
 %}
 
