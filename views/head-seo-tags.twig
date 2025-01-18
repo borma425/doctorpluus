@@ -13,19 +13,18 @@ post.thumbnail.src
 {# {% set mainTitle  = post.title %} #}
 
 {% set Title =
-fn('is_post_type_archive','doctors') ?  h1 :
-fn('is_home') or fn('is_front_page') ? homeName ~ " - " ~ homeDescription :
+fn('is_post_type_archive','doctors') ?  meta_seo_doctors_list_title :
+fn('is_singular','doctors') or fn('is_singular','doctors-loc') or fn('is_singular','post') ?  post.meta('meta_title') :
+fn('is_home') or fn('is_front_page') ? meta_seo_home_title:
 
-fn('is_singular','doctors') ? (doctor.meta('gender') == 'Man') ? 'دكتور' ~ ' '~ mainTitle : 'دكتورة' ~ ' '~ mainTitle   :
-fn('is_singular') ?   mainTitle:
 fn('is_search') ?  search_query :
 fn('is_404') ? "  404 - Not Found:" ~ homeName : homeName
 %}
 
 {% set Description =
-fn('is_post_type_archive','doctors') ?  h1 :
-fn('is_home') or fn('is_front_page') ?  homeDescription :
-
+fn('is_post_type_archive','doctors') ?  meta_seo_doctors_list_desc :
+fn('is_singular','doctors') or fn('is_singular','doctors-loc') or fn('is_singular','post') ?  post.meta('meta_description') :
+fn('is_home') or fn('is_front_page') ?  meta_seo_home_desc :
 PostDescription ?  PostDescription : h1
 %}
 
@@ -73,6 +72,12 @@ PostDescription ?  PostDescription : h1
 <meta content='{{ current_url }}' property='og:url'/>
 <link href='{{ current_url }}' rel='canonical'/>
 <meta itemprop='url' content='{{ current_url }}'/>
+
+
+
+
+
+
 
 
 <!-- Twitter Graph -->

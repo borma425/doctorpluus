@@ -18,6 +18,7 @@ new hero_header();
 new why_us();
 new Feedbacks_Customizer();
 new main_edit();
+new Meta_SEO();
 
 new logos();
 new footerPlus();
