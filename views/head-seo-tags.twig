@@ -67,6 +67,7 @@ PostDescription ?  PostDescription : h1
 <meta name="msapplication-TileImage" content="{{ medium_logo }}" />
 
 
+{% set current_url = current_url|split('?')|first %}
 
 <!-- Url canonical -->
 <meta content='{{ current_url }}' property='og:url'/>
