@@ -13,17 +13,20 @@ post.thumbnail.src
 {# {% set mainTitle  = post.title %} #}
 
 {% set Title =
-fn('is_post_type_archive','doctors') ?  '  احجــز الأن مع افضل الأطباء' :
+fn('is_post_type_archive','doctors') ?  h1 :
 fn('is_home') or fn('is_front_page') ? homeName ~ " - " ~ homeDescription :
-fn('is_singular','doctors') ? (doctor.meta('gender') == 'Man') ? 'دكتور' : 'دكتورة' ~ ' '~ mainTitle   :
 
+fn('is_singular','doctors') ? (doctor.meta('gender') == 'Man') ? 'دكتور' ~ ' '~ mainTitle : 'دكتورة' ~ ' '~ mainTitle   :
 fn('is_singular') ?   mainTitle:
 fn('is_search') ?  search_query :
 fn('is_404') ? "  404 - Not Found:" ~ homeName : homeName
 %}
 
 {% set Description =
-PostDescription ?  PostDescription : homeDescription
+fn('is_post_type_archive','doctors') ?  h1 :
+fn('is_home') or fn('is_front_page') ?  homeDescription :
+
+PostDescription ?  PostDescription : h1
 %}
 
 {% set datePublishedTimestamp = post.date %}

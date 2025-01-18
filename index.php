@@ -11,7 +11,7 @@ $context['best_doctors'] = Timber::get_posts([
     'meta_key' => 'ratings_stars', // Meta key for sorting
     'orderby' => 'meta_value_num', // Order by numeric value of the meta field
     'order' => 'DESC', // Sort in descending order (highest rating first)
-    'posts_per_page' => 5, // Get top 5 doctors
+    'posts_per_page' => 6, // Get top 5 doctors
 ]);
 
 $context['posts'] = Timber::get_posts([

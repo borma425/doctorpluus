@@ -33,7 +33,7 @@
         <div class="dropdown-wrapper">
             <input type="checkbox" id="dropdown-toggle" class="toggle-dropdown">
             <label id="main_input_filter1" for="dropdown-toggle" class="dropdown-btn">الأكثر تطابقا</label>
-            <form id="filter1_inputs" class="dropdown-content" method="get" action="{{ site.link }}">
+            <form id="filter1_inputs" class="dropdown-content" method="get" action="{{fn('CPT_Redirect_link','doctors').link }}">
                 <input type="hidden" name="s" value="filter1" aria-label="بحث">
                 <label class="radio-option">
                     <input type="radio" name="sort" value="most_relevant" checked="">

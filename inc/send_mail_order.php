@@ -19,7 +19,7 @@ try {
     $mail->Port       = 465; // TCP port to connect to
     $mail->CharSet = 'UTF-8';
     // Recipients
-    $mail->setFrom('info@doctorpluus.com', 'doctorpluus');
+    $mail->setFrom('order@doctorpluus.com', 'doctorpluus');
     $mail->addAddress('info@doctorpluus.com'); // Add a recipient
 $main_title = ' حجز مع د/ ' .  $doctor_name ;
     // Content
