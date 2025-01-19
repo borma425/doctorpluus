@@ -19,6 +19,7 @@ require(get_theme_file_path('inc/contact_us.php'));
 
 require(get_theme_file_path('inc/send_order.php'));
 
+require(get_theme_file_path('inc/custom_code_manager.php'));
 
 
 function custom_admin_menu_script() {

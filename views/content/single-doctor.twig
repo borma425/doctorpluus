@@ -201,5 +201,22 @@ bookNowButtons.forEach(button => {
 
 </script>
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "{{ doctor.name }}",
+  "medicalSpecialty": "HairTransplantation",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ doctor.meta('address') }}",
+    "addressLocality": "{{ doctor.meta('address') }}",
+    "addressCountry": "EG"
+  },
+  "priceRange": "{{ doctor.meta('detection_price') }}",
+  "openingHours": "{{ doctor.meta('booking_date') ~" "~ doctor.meta('start_time') ~" "~ doctor.meta('end_time')  }}",
+  "telephone": "{{ doctor.meta('phone_number') }}",
+  "waitTime": "{{ doctor.meta('waiting_time') }}"
+}
+</script>
 {% endblock %}

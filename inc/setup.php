@@ -51,6 +51,9 @@ add_filter( 'timber/context', function( $context ) {
 
   $context['current_cpt_link']   =  $CPT["link"];
   $context['current_cpt_type']   =  $CPT["type"];
+  $context['custom_code_head']   = get_option('custom_code_textarea');
+  $context['custom_code_footer'] = get_option('custom_code_footer_textarea');
+
 
 
     $current_url = Timber\URLHelper::get_current_url();
