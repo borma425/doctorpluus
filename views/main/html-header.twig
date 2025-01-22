@@ -1,45 +1,66 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand w-25" href="{{ site.link }}">
+            <img src="{{ logo_100_x_100 }}" class="navbar-img w-50" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-
- <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-            <a class="navbar-brand w-25" href="{{ site.link }}"><img src="{{ logo_100_x_100 }}"
-                    class="navbar-img w-50" alt="logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
-    {% for item in header_menu_1.items %}
-        <li class="nav-item {% if item.children %}dropdown{% endif %}">
-            <a 
-                class="nav-link active {% if item.children %}dropdown-toggle{% endif %}" 
-                href="{{ item.link|e('esc_html') }}" 
-                {% if item.children %} 
-                    id="navbarDropdown-{{ loop.index }}" 
-                    role="button" 
-                    data-bs-toggle="dropdown" 
-                    aria-expanded="false" 
-                {% endif %}
-                aria-current="page"
-            >
-                {{ item.title }}
-            </a>
-            {% if item.children %}
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown-{{ loop.index }}">
-                    {% for child in item.children %}
-                        <li>
-                            <a class="dropdown-item" href="{{ child.link|e('esc_html') }}">{{ child.title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
+                {% for item in header_menu_1.items %}
+                    <li class="nav-item {% if item.children %}dropdown{% endif %}">
+                        <a 
+                            class="nav-link active {% if item.children %}dropdown-toggle{% endif %}" 
+                            href="{{ item.link|e('esc_html') }}" 
+                            {% if item.children %} 
+                                id="navbarDropdown-{{ loop.index }}" 
+                                role="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false" 
+                            {% endif %}
+                            aria-current="page"
+                        >
+                            {{ item.title }}
+                        </a>
+                        {% if item.children %}
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown-{{ loop.index }}">
+                                {% for child in item.children %}
+                                    <li class="dropdown-item-with-border">
+                                        <a class="dropdown-item" href="{{ child.link|e('esc_html') }}">{{ child.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+<style>
+    /* Add border after every submenu item */
+    .dropdown-item-with-border {
+        border-bottom: 1px solid #ddd; /* Add a border at the bottom of each child <li> */
+    }
+
+    /* Remove border from the last child <li> */
+    .dropdown-item-with-border:last-child {
+        border-bottom: none;
+    }
+
+    /* Optional: Add padding to child <li> elements for better spacing */
+    .dropdown-item-with-border {
+        padding: 8px 16px;
+    }
+
+    /* Optional: Add hover effect for child <li> elements */
+    .dropdown-item-with-border:hover {
+        background-color: #f8f9fa; /* Light background on hover */
+    }
+</style>
