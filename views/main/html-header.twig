@@ -30,7 +30,7 @@
                         {% if item.children %}
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown-{{ loop.index }}">
                                 {% for child in item.children %}
-                                    <li class="dropdown-item-with-border">
+                                    <li class="dropdown-item-with-border  text-end">
                                         <a class="dropdown-item" href="{{ child.link|e('esc_html') }}">{{ child.title }}</a>
                                     </li>
                                 {% endfor %}
@@ -56,7 +56,7 @@
 
     /* Optional: Add padding to child <li> elements for better spacing */
     .dropdown-item-with-border {
-        padding: 8px 16px;
+padding: 7px 0px;
     }
 
     /* Optional: Add hover effect for child <li> elements */
